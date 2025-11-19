@@ -1,0 +1,539 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sasreek R - Computer Science & ML Developer</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* GitHub Dark Background */
+            color: #c9d1d9; /* Light gray text */
+        }
+        .accent-color {
+            color: #38bdf8; /* Sky Blue Accent */
+        }
+        .bg-accent-gradient {
+            background-image: linear-gradient(to right, #38bdf8, #818cf8);
+        }
+        .nav-link:hover {
+            color: #38bdf8;
+        }
+        /* Style for the project timeline dot */
+        .timeline-dot {
+            background-color: #38bdf8;
+            border-color: #0d1117;
+            border-width: 4px;
+        }
+
+        /* Styling for the image placeholders */
+        .ui-image-placeholder {
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #c9d1d9;
+            background-color: #1a202c; /* Darker background */
+            border: 2px dashed #4a5568;
+            border-radius: 0.75rem; /* rounded-xl */
+            font-style: italic;
+        }
+
+        /* Hidden initially, shown via JS for routing */
+        .content-page {
+            display: none;
+            min-height: calc(100vh - 8rem); /* Adjust for header/footer space */
+            padding-top: 5rem; /* Space below fixed header */
+        }
+
+        /* Ensure the main page is full screen */
+        #home {
+            min-height: 100vh;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- 
+    ================================================
+    1. Navigation Bar (Fixed Header) 
+    ================================================
+    -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-[#0d1117] bg-opacity-95 shadow-lg backdrop-blur-sm transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold accent-color hover:text-[#818cf8] transition duration-300 route-link" data-target="home">
+                Sasreek R
+            </a>
+            <div class="space-x-8 hidden md:flex">
+                <a href="#about" class="nav-link text-lg font-medium transition duration-300 route-link" data-target="about">About</a>
+                <a href="#skills" class="nav-link text-lg font-medium transition duration-300 route-link" data-target="skills">Skills</a>
+                <a href="#projects" class="nav-link text-lg font-medium transition duration-300 route-link" data-target="projects">Projects</a>
+                <a href="#design-work" class="nav-link text-lg font-medium transition duration-300 route-link" data-target="design-work">Design Work</a>
+                <a href="#education" class="nav-link text-lg font-medium transition duration-300 route-link" data-target="education">Education</a>
+                <a href="#contact" class="nav-link text-lg font-medium transition duration-300 route-link" data-target="contact">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 bg-[#0d1117]">
+            <a href="#about" class="nav-link block text-lg font-medium transition duration-300 route-link" data-target="about">About</a>
+            <a href="#skills" class="nav-link block text-lg font-medium transition duration-300 route-link" data-target="skills">Skills</a>
+            <a href="#projects" class="nav-link block text-lg font-medium transition duration-300 route-link" data-target="projects">Projects</a>
+            <a href="#design-work" class="nav-link block text-lg font-medium transition duration-300 route-link" data-target="design-work">Design Work</a>
+            <a href="#education" class="nav-link block text-lg font-medium transition duration-300 route-link" data-target="education">Education</a>
+            <a href="#contact" class="nav-link block text-lg font-medium transition duration-300 route-link" data-target="contact">Contact</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 
+        ================================================
+        2. Hero Section (Home - Always visible by default)
+        ================================================
+        -->
+        <section id="home" class="pt-40 pb-24 flex items-center justify-center text-center content-page">
+            <div>
+                <h1 class="text-5xl sm:text-7xl font-extrabold leading-tight tracking-tight">
+                    Hello, I'm <span class="bg-accent-gradient text-transparent bg-clip-text">Sasreek R</span>
+                </h1>
+                <p class="mt-4 text-2xl sm:text-3xl font-light text-gray-400">
+                    B.Tech Computer Science | ML & UI/UX Developer
+                </p>
+                <p class="mt-6 text-lg max-w-3xl mx-auto text-gray-400">
+                    Eager to take on challenging roles, I leverage my skills in **Deep Learning**, **Python**, and **SQL** while focusing on **user-centric design** to create functional and aesthetic solutions.
+                </p>
+                <div class="mt-10 space-x-4">
+                    <a href="#contact" class="inline-block px-8 py-3 text-lg font-semibold text-white bg-accent-gradient rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-105 route-link" data-target="contact">
+                        Get In Touch
+                    </a>
+                    <a href="#projects" class="inline-block px-8 py-3 text-lg font-semibold text-gray-300 border border-gray-600 rounded-lg hover:border-accent-color hover:text-accent-color transition duration-300 transform hover:scale-105 route-link" data-target="projects">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+        ================================================
+        3. About Section (PAGE)
+        ================================================
+        -->
+        <section id="about" class="py-24 border-t border-gray-800 content-page">
+            <h2 class="text-4xl font-bold text-center mb-12 accent-color">About Me</h2>
+            <div class="max-w-4xl mx-auto space-y-6 text-gray-400 text-lg">
+                <p>
+                    I am a highly motivated B.Tech Computer Science student (2022-2026) dedicated to the intersection of  Python development, and UI/UX design. I build robust applications—from CNN image classifiers to SQL-based management systems—while applying a user-centric lens to ensure all solutions are intuitive, highly accessible, and aesthetically pleasing. I am committed to leveraging my technical and design skills in a challenging professional environment.
+                </p>
+            </div>
+        </section>
+
+        <!-- 
+        ================================================
+        4. Skills Section (PAGE)
+        ================================================
+        -->
+        <section id="skills" class="py-24 border-t border-gray-800 content-page">
+            <h2 class="text-4xl font-bold text-center mb-12 accent-color">My Skillset</h2>
+            <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                
+                <!-- Skill Card 1: Core Programming -->
+                <div class="p-6 bg-[#161b22] rounded-xl shadow-lg border border-gray-700 hover:border-accent-color transition duration-300 transform hover:scale-105">
+                    <h3 class="text-2xl font-semibold mb-2 text-white">Core Programming</h3>
+                    <ul class="space-y-1 text-gray-400">
+                        <li>**Python**</li>
+                        <li>**SQL** (Database Management)</li>
+                        <li>HTML, CSS</li>
+                    </ul>
+                </div>
+                
+                <!-- Skill Card 2: Machine Learning -->
+                <div class="p-6 bg-[#161b22] rounded-xl shadow-lg border border-gray-700 hover:border-accent-color transition duration-300 transform hover:scale-105">
+                    <h3 class="text-2xl font-semibold mb-2 text-white">Machine Learning</h3>
+                    <ul class="space-y-1 text-gray-400">
+                        <li>**Deep Learning** (CNNs)</li>
+                        <li>**TensorFlow/Keras**</li>
+                        <li>Data Preprocessing/Augmentation</li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 3: System & Tools -->
+                <div class="p-6 bg-[#161b22] rounded-xl shadow-lg border border-gray-700 hover:border-accent-color transition duration-300 transform hover:scale-105">
+                    <h3 class="text-2xl font-semibold mb-2 text-white">System & Tools</h3>
+                    <ul class="space-y-1 text-gray-400">
+                        <li>Network I/O Monitoring</li>
+                        <li>Python Libraries (psutil, tkinter)</li>
+                        <li>AWS Foundations (Certified)</li>
+                    </ul>
+                </div>
+                
+                <!-- Skill Card 4: UI/UX & Design (CLICKABLE LINK to UI Journey) -->
+                <a href="#ui-journey" class="block p-6 bg-[#161b22] rounded-xl shadow-lg border border-gray-700 hover:border-accent-color transition duration-300 transform hover:scale-105 route-link" data-target="ui-journey">
+                    <h3 class="text-2xl font-semibold mb-2 text-white">UI/UX & Design</h3>
+                    <ul class="space-y-1 text-gray-400">
+                        <li>**Figma** (Mockups/Prototyping)</li>
+                        <li>Visual Hierarchy & Contrast</li>
+                        <li>Responsive Web Design (CSS)</li>
+                    </ul>
+                    <p class="mt-4 text-sm font-semibold text-accent-color">View Design Journey &rarr;</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- 
+        ================================================
+        5. UI/UX Journey Section (PAGE - Accessed from Skills)
+        ================================================
+        -->
+        <section id="ui-journey" class="py-24 border-t border-gray-800 content-page">
+            <h2 class="text-4xl font-bold text-center mb-12 accent-color">UI/UX Design Journey</h2>
+            <div class="max-w-6xl mx-auto space-y-10">
+                <p class="text-lg text-gray-400 text-center max-w-4xl mx-auto">
+                    My approach to development is rooted in the belief that great functionality requires great user experience. I focus on key principles like **Visual Hierarchy**, **Accessibility**, and **Information Architecture** to design interfaces that are both powerful and easy to use.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Design Visualization 1: Mockup of Network Analyzer GUI -->
+                    <div class="p-4 bg-[#161b22] rounded-xl shadow-lg border border-gray-700">
+                        <div class="ui-image-placeholder mb-4 text-sm">
+                            
+                        </div>
+                        <h4 class="text-xl font-semibold text-white">Information Architecture</h4>
+                        <p class="text-gray-400 text-sm mt-1">
+                            Focus on organizing complex data (like Network I/O stats) into clean, digestible modules for quick administrator insight.
+                        </p>
+                    </div>
+
+                    <!-- Design Visualization 2: NGO Dashboard Mockup -->
+                    <div class="p-4 bg-[#161b22] rounded-xl shadow-lg border border-gray-700">
+                        <div class="ui-image-placeholder mb-4 text-sm">
+                            
+                        </div>
+                        <h4 class="text-xl font-semibold text-white">Usability & Affordance</h4>
+                        <p class="text-gray-400 text-sm mt-1">
+                            Designing systems like the NGO Management platform with clear pathways for core tasks (e.g., donor reporting, volunteer scheduling).
+                        </p>
+                    </div>
+
+                    <!-- Design Visualization 3: Mobile/Desktop View -->
+                    <div class="p-4 bg-[#161b22] rounded-xl shadow-lg border border-gray-700">
+                        <div class="ui-image-placeholder mb-4 text-sm">
+                            
+                        </div>
+                        <h4 class="text-xl font-semibold text-white">Responsive Design</h4>
+                        <p class="text-gray-400 text-sm mt-1">
+                            Ensuring seamless user experience across devices by using CSS media queries and fluid layouts for optimal viewing on mobile and desktop.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 
+        ================================================
+        6. Projects Section (PAGE)
+        ================================================
+        -->
+        <section id="projects" class="py-24 border-t border-gray-800 content-page">
+            <h2 class="text-4xl font-bold text-center mb-12 accent-color">Featured Technical Projects</h2>
+            <div class="max-w-4xl mx-auto space-y-12">
+                
+                <!-- Project Item 1: General Image Classifier -->
+                <div class="relative pl-8 sm:pl-16">
+                    <div class="absolute w-1 h-full bg-gray-700 left-0 sm:left-6 rounded-full"></div>
+                    <div class="absolute w-5 h-5 timeline-dot rounded-full -left-2 sm:left-4 top-0 border-4 border-[#0d1117]"></div>
+                    <p class="text-sm font-light text-gray-500">Sept 2024 - Oct 2024</p>
+                    <h3 class="text-2xl font-semibold text-white mt-1">General Image Classifier</h3>
+                    <p class="accent-color font-medium">Tech Stack: CNNs, TensorFlow/Keras, Python</p>
+                    <ul class="mt-3 space-y-2 text-gray-400 list-disc list-inside">
+                        <li>Developed a deep learning model using **Convolutional Neural Networks (CNNs)** to classify images from the CIFAR-10 dataset into 10 distinct categories.</li>
+                        <li>Improved model generalization by implementing data preprocessing techniques such as **normalization and augmentation**.</li>
+                        <li>Achieved competitive accuracy through model optimization and thorough training using the **TensorFlow/Keras** framework.</li>
+                    </ul>
+                </div>
+
+                <!-- Project Item 2: NGO Management System -->
+                <div class="relative pl-8 sm:pl-16">
+                    <div class="absolute w-1 h-full bg-gray-700 left-0 sm:left-6 rounded-full"></div>
+                    <div class="absolute w-5 h-5 timeline-dot rounded-full -left-2 sm:left-4 top-0 border-4 border-[#0d1117]"></div>
+                    <p class="text-sm font-light text-gray-500">Feb 2024 - Apr 2024</p>
+                    <h3 class="text-2xl font-semibold text-white mt-1">NGO Management System (Database Project)</h3>
+                    <p class="accent-color font-medium">Tech Stack: SQL, Database Management Systems</p>
+                    <ul class="mt-3 space-y-2 text-gray-400 list-disc list-inside">
+                        <li>Designed and implemented a relational database model using **SQL** principles to streamline administrative tasks like donor and volunteer management.</li>
+                        <li>Enabled targeted outreach campaigns and optimized fundraising efforts through meticulous recording and analysis of **donor information** and **donation patterns**.</li>
+                        <li>Automated **volunteer coordination** via a centralized database tracking skills, availability, and contributions, facilitating efficient assignment and scheduling.</li>
+                    </ul>
+                </div>
+
+                <!-- Project Item 3: Network Traffic Analyser -->
+                <div class="relative pl-8 sm:pl-16">
+                    <div class="absolute w-1 h-full bg-gray-700 left-0 sm:left-6 rounded-full"></div>
+                    <div class="absolute w-5 h-5 timeline-dot rounded-full -left-2 sm:left-4 top-0 border-4 border-[#0d1117]"></div>
+                    <p class="text-sm font-light text-gray-500">Aug 2023 - Oct 2023</p>
+                    <h3 class="text-2xl font-semibold text-white mt-1">Network Traffic Analyser</h3>
+                    <p class="accent-color font-medium">Tech Stack: Python, psutil, tkinter (GUI)</p>
+                    <ul class="mt-3 space-y-2 text-gray-400 list-disc list-inside">
+                        <li>Developed a real-time network analyzer in **Python** using the **psutil** library to access network I/O statistics and provide a user-friendly graphical interface with **tkinter**.</li>
+                        <li>Implemented continuous monitoring of network activity, including **total data sent/received** and **current upload/download speeds**, displayed in a real-time table format.</li>
+                        <li>Designed to aid in identifying high-traffic network interfaces and measuring application impact on network performance.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 
+        ================================================
+        7. UI/UX Based Project Section (PAGE - New Design Case Study)
+        ================================================
+        -->
+        <section id="design-work" class="py-24 border-t border-gray-800 content-page">
+            <h2 class="text-4xl font-bold text-center mb-12 accent-color">Design Case Study: Wellness Tracker App Concept</h2>
+            <div class="max-w-4xl mx-auto space-y-12">
+                <p class="text-lg text-gray-400 text-center">
+                    This case study demonstrates my ability to apply user-centered design principles to solve a real-world problem, focusing on the journey from problem discovery to final visual design.
+                </p>
+
+                <!-- Phase 1: Discovery & Problem -->
+                <div class="p-6 bg-[#161b22] rounded-xl shadow-lg border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Phase 1: Discovery & Problem Definition</h3>
+                    <p class="text-gray-400">
+                        **Problem:** Users struggle with scattered health data across multiple apps (sleep, fitness, mood). The goal was to consolidate tracking into a single, cohesive, and motivating interface.
+                    </p>
+                    <ul class="mt-3 space-y-2 text-gray-400 list-disc list-inside text-sm">
+                        <li>Conducted user interviews to identify key pain points (data entry friction, lack of consolidated feedback).</li>
+                        <li>Defined the core user group: busy professionals seeking simple, automated tracking.</li>
+                        <li>**Solution Goal:** Design a minimal, motivational dashboard providing actionable insights at a glance.</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 2: Wireframing & Prototyping -->
+                <div class="p-6 bg-[#161b22] rounded-xl shadow-lg border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Phase 2: Wireframing & Prototyping (Figma)</h3>
+                    <p class="text-gray-400">
+                        Used Figma to create low-fidelity wireframes, focusing purely on **Information Architecture** and flow before introducing visual style.
+                    </p>
+                    <ul class="mt-3 space-y-2 text-gray-400 list-disc list-inside text-sm">
+                        <li>Designed a primary navigation focused on three areas: Dashboard, Input, and History.</li>
+                        <li>Created an interactive prototype to test the user flow for logging sleep and mood, ensuring minimal steps.</li>
+                        <li>Iterated based on usability testing feedback, optimizing icon placement and reducing text clutter.</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 3: Visual Design & Handoff -->
+                <div class="p-6 bg-[#161b22] rounded-xl shadow-lg border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white mb-3">Phase 3: Visual Design & Handoff</h3>
+                    <p class="text-gray-400">
+                        Applied a calming, accessible color palette (dark mode primary) and established a clear design system.
+                    </p>
+                    <ul class="mt-3 space-y-2 text-gray-400 list-disc list-inside text-sm">
+                        <li>Utilized bold, accessible typography (Inter font) and high-contrast color pairings for charts.</li>
+                        <li>Designed custom data visualization components (progress rings, historical line charts) to maximize information density without sacrificing visual clarity.</li>
+                        <li>Prepared a final style guide and asset package for developer handoff, including specific component states and responsive breakpoints.</li>
+                    </ul>
+                </div>
+
+                <!-- Call to Action/Link to Full Case Study (Placeholder) -->
+                <div class="text-center pt-4">
+                    <a href="#" class="inline-block px-8 py-3 text-lg font-semibold text-white bg-accent-gradient rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                        View Full Figma Prototype &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 
+        ================================================
+        8. Education Section (PAGE)
+        ================================================
+        -->
+        <section id="education" class="py-24 border-t border-gray-800 content-page">
+            <h2 class="text-4xl font-bold text-center mb-12 accent-color">Education & Certifications</h2>
+            <div class="max-w-4xl mx-auto space-y-8">
+                
+                <!-- B.Tech Degree -->
+                <div class="p-6 bg-[#161b22] rounded-xl shadow-lg border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white">B.Tech in Computer Science</h3>
+                    <p class="accent-color font-medium">SRM University, Kattankulathur, India</p>
+                    <p class="text-gray-400 mt-2">2022 – 2026 | CGPA 6.9</p>
+                </div>
+                
+                <!-- Certifications -->
+                <div class="p-6 bg-[#161b22] rounded-xl shadow-lg border border-gray-700">
+                    <h3 class="text-2xl font-semibold text-white">Certifications</h3>
+                    <ul class="space-y-2 text-gray-400 list-disc list-inside mt-2">
+                        <li>**AWS Academy Graduate** - AWS Academy Machine Learning Foundations (Feb. 2024)</li>
+                        <li>Berkeley Method of Entrepreneurship Bootcamp (Oct. 2023)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 
+        ================================================
+        9. Contact Section (PAGE)
+        ================================================
+        -->
+        <section id="contact" class="py-24 border-t border-gray-800 content-page">
+            <h2 class="text-4xl font-bold text-center mb-12 accent-color">Get In Touch</h2>
+            <div class="max-w-2xl mx-auto text-center text-gray-400">
+                <p class="mb-8 text-lg">
+                    I'm currently seeking challenging opportunities where I can apply my ML and development skills. Feel free to contact me directly via email or phone.
+                </p>
+                
+                <form class="space-y-6 bg-[#161b22] p-8 rounded-xl shadow-2xl border border-gray-700">
+                    <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-[#0d1117] border border-gray-600 focus:ring-accent-color focus:border-accent-color text-white" required>
+                    <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg bg-[#0d1117] border border-gray-600 focus:ring-accent-color focus:border-accent-color text-white" required>
+                    <textarea placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg bg-[#0d1117] border border-gray-600 focus:ring-accent-color focus:border-accent-color text-white" required></textarea>
+                    
+                    <button type="submit" class="w-full py-3 text-lg font-semibold text-white bg-accent-gradient rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01]">
+                        Send Message
+                    </button>
+                    <!-- Displayed instead of using alert() or confirm() -->
+                    <p id="form-message" class="text-green-400 mt-4 hidden">Message sent successfully!</p>
+                </form>
+
+                <div class="mt-8 space-x-6 text-2xl">
+                    <!-- Email Link -->
+                    <a href="mailto:sasreekravi12@gmail.com" class="hover:text-accent-color transition duration-300 flex items-center justify-center space-x-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7"></path></svg>
+                        <span class="text-lg">sasreekravi12@gmail.com</span>
+                    </a>
+                    <!-- Phone Link -->
+                    <a href="tel:+916381935201" class="hover:text-accent-color transition duration-300 flex items-center justify-center space-x-2 mt-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.135l-2.61 1.625a1.125 1.125 0 00-.638.638l-1.625 2.61a1 1 0 00-1.135.502l-4.493-1.498A1 1 0 013 18.72V5z"></path></svg>
+                        <span class="text-lg">+91 6381935201</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 
+    ================================================
+    10. Footer
+    ================================================
+    -->
+    <footer class="border-t border-gray-800 mt-12 py-8 text-center text-sm text-gray-600">
+        <p>&copy; <span id="current-year"></span> Sasreek R. All rights reserved. | Built with HTML & Tailwind CSS.</p>
+    </footer>
+
+    <!-- 
+    ================================================
+    11. JavaScript for Interactivity and Routing
+    ================================================
+    -->
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- Routing Logic ---
+        
+        // Function to show the current page based on the hash
+        function showPage(pageId) {
+            // Ensure pageId does not contain '#'
+            const cleanId = pageId.startsWith('#') ? pageId.substring(1) : pageId;
+            
+            // Handle home page which has special sizing
+            const isHomePage = cleanId === 'home' || cleanId === '';
+            
+            // 1. Hide all content pages
+            document.querySelectorAll('main section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // 2. Show the requested page
+            const targetSection = document.getElementById(cleanId || 'home');
+            if (targetSection) {
+                targetSection.style.display = 'flex';
+                targetSection.style.flexDirection = 'column';
+
+                // Ensure the home page takes full viewport height for the landing effect
+                if (isHomePage) {
+                    targetSection.classList.add('min-h-screen');
+                } else {
+                    targetSection.classList.remove('min-h-screen');
+                }
+                
+                // 3. Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                     mobileMenu.classList.add('hidden');
+                }
+                
+                // 4. Update the URL hash without scrolling the page
+                if (window.location.hash !== '#' + cleanId) {
+                    history.pushState(null, null, '#' + cleanId);
+                }
+            } else {
+                // If the hash is invalid, default to home
+                showPage('home');
+            }
+        }
+
+        // Event listener for hash change (browser back/forward buttons)
+        window.addEventListener('hashchange', () => {
+            showPage(window.location.hash);
+        });
+
+        // Event listener for navigation clicks
+        document.querySelectorAll('.route-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = this.getAttribute('data-target') || this.href.split('#')[1];
+                showPage(target);
+            });
+        });
+
+        // Initial page load: check the hash or default to home
+        window.onload = function() {
+            showPage(window.location.hash || 'home');
+        };
+
+        // --- Other Interactivity ---
+
+        // Handle mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Simple form submission handler (to prevent page reload and show success message)
+        document.querySelector('#contact form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const message = this.querySelector('textarea').value;
+
+            if (name && email && message) {
+                const formMessage = document.getElementById('form-message');
+                formMessage.classList.remove('hidden');
+                formMessage.textContent = "Thank you! Your message has been sent successfully.";
+                
+                // Reset form after a brief delay
+                setTimeout(() => {
+                    this.reset();
+                    formMessage.classList.add('hidden');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
